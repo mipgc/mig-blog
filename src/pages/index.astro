@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import { getPosts, formatDate } from '../lib/posts';
+
+const posts = await getPosts();
+---
+
+<Base title="Miguel Puerta's Blog">
+  <section class="intro">
+    <h1>Hi, I’m Miguel.</h1>
+    <p>Software developer. I write about artificial intelligence, technology and my take on where all of this is heading.</p>
+  </section>
+
+  {posts.length === 0 ? (
+    <p class="muted">No posts yet.</p>
+  ) : (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li>
+          <a href={`/posts/${post.id}/`} class="post-link">
+            <span class="post-title">{post.data.title}</span>
+            <time datetime={post.data.pubDate.toISOString()} class="muted">
+              {formatDate(post.data.pubDate)}
+            </time>
+          </a>
+          <p class="muted">{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  )}
+</Base>

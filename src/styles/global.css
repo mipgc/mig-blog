@@ -1,0 +1,206 @@
+/* Warm "paper" palette */
+:root {
+  --color-bg: #faf6ef;
+  --color-surface: #f2ebdf;
+  --color-text: #2b2420;
+  --color-muted: #7a6a5d;
+  --color-accent: #c2552d;
+  --color-accent-hover: #9e4222;
+  --color-border: #e4d8c6;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --max-width: 680px;
+  --radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1c1714;
+    --color-surface: #27201b;
+    --color-text: #ede4d8;
+    --color-muted: #a8998a;
+    --color-accent: #e8835a;
+    --color-accent-hover: #f2a27f;
+    --color-border: #3a2f28;
+  }
+
+  /* Switch Shiki code blocks to their dark theme */
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main,
+.site-footer {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+main {
+  flex: 1;
+  padding-top: 4rem;
+}
+
+h1, h2, h3 {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+/* Footer */
+.site-footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-top: 4rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* Home */
+.intro {
+  margin-bottom: 3rem;
+}
+
+.intro h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post-list p {
+  margin: 0.25rem 0 0;
+}
+
+.post-link {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  text-decoration: none;
+}
+
+.post-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.post-link time {
+  font-size: 0.875rem;
+}
+
+/* Post */
+.post-header {
+  margin-bottom: 2.5rem;
+}
+
+.post-header h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.tags li {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0 0.65rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.prose {
+  font-size: 1.0625rem;
+}
+
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+.prose code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--color-surface);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+.prose pre {
+  font-size: 0.875rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 2.5rem 0;
+}
